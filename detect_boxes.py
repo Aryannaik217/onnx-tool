@@ -86,15 +86,3 @@ def predict_with_onnx(image_path, onnx_model_path, classes, img_size=640, conf_t
  
     return image_with_boxes
  
-# Example usage
-if __name__ == "__main__":
-    image_path = "d:/Video Analtycis/Pothole Detection/yolov7-main/dataset/train/images/img-1_jpg.rf.04766deb9036fc43721c26f431c3eb3d.jpg"
-    onnx_model_path = "d:/Video Analtycis/Pothole Detection/yolov7-main/runs/train/yolov7-pothole3/weights/best.onnx"
-    classes = ['pothole']  # Replace with your actual class names
- 
-    result_image = predict_with_onnx(image_path, onnx_model_path, classes)
-    result_image = cv2.cvtColor(result_image, cv2.COLOR_RGB2BGR)
-    print("Result image size:" , result_image.shape)
-    cv2.imshow("Result", result_image)
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()

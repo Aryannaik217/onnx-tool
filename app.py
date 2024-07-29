@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, jsonify
 import cv2
 import base64
 import numpy as np
-import detect_boxes
+
 
 app = Flask(__name__)
 
@@ -30,15 +30,7 @@ def capture():
     return jsonify({'result': result_img_str})
 
 def process_image(img):
-    print(img)
-    image_path = img
-    onnx_model_path = "./best.onnx"
-    classes = ['pothole'] 
- 
-    result_image = detect_boxes.predict_with_onnx(image_path, onnx_model_path, classes)
-    result_image = cv2.cvtColor(result_image, cv2.COLOR_RGB2BGR)
-
-    return result_image
+    return img
 
 if __name__ == '__main__':
     app.run(debug=True)
