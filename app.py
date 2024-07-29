@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify , send_file
 import cv2
 import base64
 import numpy as np
@@ -29,6 +29,14 @@ def capture():
     _, buffer = cv2.imencode('.jpg', result_img)
     result_img_str = base64.b64encode(buffer).decode('utf-8')
     return jsonify({'result': result_img_str})
+
+@app.route('/sw.js')
+def serve_sw():
+    return send_file('sw.js', mimetype='application/javascript')
+
+@app.route('/manifest.json')
+def serve_manifest():
+    return send_file('manifest.json', mimetype='application/manifest+json')
 
 def process_image(img):
     try:
