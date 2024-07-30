@@ -1,6 +1,6 @@
 {
     "name": "Inventory Counter",
-    "short_name": "PWA",
+    "short_name": "Inventory Counter",
     "start_url": "/",
     "scope": "/",
     "display": "standalone",
