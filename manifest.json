@@ -1,5 +1,5 @@
 {
-    "name": "My PWA",
+    "name": "Inventory Counter",
     "short_name": "PWA",
     "start_url": "/",
     "scope": "/",
