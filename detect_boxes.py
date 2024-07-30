@@ -44,7 +44,7 @@ def draw_boxes(image, detections, classes , original_w , original_h):
     return image
  
  
-def predict_with_onnx(image_path, onnx_model_path, classes, img_size=640, conf_thresh=0.15, iou_thresh=0.2):
+def predict_with_onnx(image_path, onnx_model_path, classes, img_size=640, conf_thresh=0.02, iou_thresh=0.2):
     # Load ONNX model
     session = load_onnx_model(onnx_model_path)
     print("model loaded")
@@ -59,6 +59,8 @@ def predict_with_onnx(image_path, onnx_model_path, classes, img_size=640, conf_t
     # Perform inference
     outputs = session.run(None, {"images":img_input})
     detections = np.array(outputs[0])
+
+    print("detections found in the image" , detections[:6])
     #print([round(i,2) for i in outputs[0][0]])
     # Filter detections by confidence threshold
     detections = detections[detections[:, 6] >= conf_thresh]

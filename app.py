@@ -3,7 +3,7 @@ import cv2
 import base64
 import numpy as np
 import detect_boxes
-
+import traceback
 
 app = Flask(__name__)
 
@@ -49,7 +49,9 @@ def process_image(img):
 
         return result_image
     
-    except e:
+    except Exception:
+        print('Error Occurred')
+        traceback.print_exc()
         return img
 
 if __name__ == '__main__':
