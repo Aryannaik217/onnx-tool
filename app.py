@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify , send_file
+from flask import Flask, render_template, request, jsonify, send_file
 import cv2
 import base64
 import numpy as np
@@ -42,13 +42,13 @@ def process_image(img):
     try:
         image_path = img
         onnx_model_path = "./best.onnx"
-        classes = ['pothole'] 
- 
-        result_image = detect_boxes.predict_with_onnx(image_path, onnx_model_path, classes)
+        classes = ['pothole']
+
+        result_image, count, result_tuple, average_confidence = detect_boxes.predict_with_onnx(image_path, onnx_model_path, classes)
         result_image = cv2.cvtColor(result_image, cv2.COLOR_RGB2BGR)
 
         return result_image
-    
+
     except Exception:
         print('Error Occurred')
         traceback.print_exc()
