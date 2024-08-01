@@ -1,5 +1,5 @@
 :root {
-    --title-size: 5vw;
+    --title-size: 4vw;
     --logo-width: 10vw;
 }
 
@@ -21,7 +21,7 @@ h1 {
     margin-top: 35px;
     transition: color 0.3s;
     text-align: center; /* Center the title text */
-    font-family:Calibri;
+    font-family: Arial;
 }
 
 .top-container {
@@ -31,6 +31,9 @@ h1 {
     margin-top: 20px;
 }
 
+.title-container{
+    padding-bottom: 0px;
+}
 .button {
     padding: 10px 60px;
     border: none;
@@ -66,13 +69,16 @@ h1 {
     border: 2px solid #000;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
+    border-radius: 2px;
     margin: 20px;
     position: relative;
 }
 
-#left-container {
+#left-container , #right-container {
     position: relative;
+    align-items: center;
+    justify-content: center;
+    /*background-color: black;*/
 }
 
 #left-container .button {
@@ -83,9 +89,9 @@ h1 {
 #left-container img,
 #right-container img,
 video {
-    width: 100%;
-    height: 100%;
-    border-radius: 8px;
+    align-self: center;
+    max-width: 100%;
+    max-height: 100%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -165,14 +171,35 @@ body.dark-mode .toggle-dark-mode {
     color: #fff;
 }
 
+.results-container {
+    width: 30%;
+    padding: 10px;
+    color: #003366;
+    text-align: center;
+    border-radius: 12px;
+    border:3px solid #003366;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.results-container p {
+    margin: 5px 0;
+}
+
 @media (max-width: 768px) {
+    .title-container{
+        padding:0px;
+    }
+
     .main-container {
         flex-direction: column;
     }
 
     .container {
         width: 80%;
-        height: 200px;   
+        height: 200px;
     }
 
     .top-container {
@@ -185,8 +212,8 @@ body.dark-mode .toggle-dark-mode {
     }
 
     .logo {
-        width: 62px;
-        height: 62px;
+        width: 52px;
+        height: 52px;
     }
 
     h1 {
@@ -196,7 +223,7 @@ body.dark-mode .toggle-dark-mode {
     button {
         width: 90%;
     }
-    
+
     .button {
         border-radius: 15px;
     }
@@ -204,10 +231,12 @@ body.dark-mode .toggle-dark-mode {
     .main-container {
         width: 100%;
     }
+
     .main-container .button {
-        position:static;
+        position: static;
         margin-top: 40px;
     }
+
     .top-container {
         margin-top: 40px;
     }
@@ -217,13 +246,19 @@ body.dark-mode .toggle-dark-mode {
     }
 
     #left-container .button {
-        
         margin-top: -2px; /* Add margin between buttons */
-        width:100%;
+        width: 100%;
     }
-    #detect-button{
-        margin-top:30x;
-        margin-bottom:30px;
+
+    #detect-button {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    .results-container{
+        width:85%;
+        font-size:0.8em;
+        padding: 2px;
     }
 }
 
@@ -233,16 +268,18 @@ body.dark-mode .toggle-dark-mode {
     }
 
     .logo {
-        width: calc(var(--logo-width) * 0.83);
+        width: calc(var(--logo-width) * 0.80);
     }
 }
 
 @media (min-width: 1025px) {
     h1 {
-        font-size: calc(var(--title-size) * 0.67); /* Adjust font size for larger screens */
+        font-size: calc(var(--title-size) * 0.62); /* Adjust font size for larger screens */
     }
 
     .logo {
-        width: calc(var(--logo-width) * 0.67);
+        width: calc(var(--logo-width) * 0.62);
     }
 }
+
+
